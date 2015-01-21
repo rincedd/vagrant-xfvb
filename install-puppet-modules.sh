@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MODULES="puppetlabs-nodejs puppetlabs-java puppetlabs-apt p0deje-display jamesnetherton-google_chrome"
+MODULES="puppetlabs-nodejs puppetlabs-java p0deje-display jamesnetherton-google_chrome"
 
 install_module() {
     MODULE="$1"

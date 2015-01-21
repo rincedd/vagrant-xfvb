@@ -1,7 +1,3 @@
-class { 'apt':
-  apt_update_frequency => 'daily'
-}
-
 package { 'git':
   ensure => installed,
 }

@@ -43,6 +43,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # View the documentation for the provider you're using for more
   # information on available options.
 
+  # update package index
+  config.vm.provision "shell", inline: "apt-get update -y"
+
   # install puppet modules
   config.vm.provision "shell", path: "install-puppet-modules.sh"
 
