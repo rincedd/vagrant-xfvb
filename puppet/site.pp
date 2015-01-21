@@ -33,3 +33,9 @@ class {'display':
 class { 'google_chrome':
   version => 'stable'
 }
+
+class { 'jenkins-slave':
+  master_url => $::jenkins_master_url,
+  jnlp_url => $::jenkins_slave_jnlp_url,
+  slave_secret => $::jenkins_slave_secret
+}

@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+require 'yaml'
+CONF = YAML.load(File.open(File.join(File.dirname(__FILE__), "config.yml"), File::RDONLY).read)
+
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -54,5 +57,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     puppet.manifests_path = "puppet"
     puppet.module_path = "puppet/modules"
     puppet.manifest_file = "site.pp"
+    puppet.facter = {
+        :jenkins_master_url => CONF['jenkins']['master_url'],
+        :jenkins_slave_jnlp_url => CONF['jenkins']['slave_jnlp'],
+        :jenkins_slave_secret => CONF['jenkins']['slave_secret'],
+        :jenkins_slave_home => CONF['jenkins']['slave_home']
+    }
   end
 end

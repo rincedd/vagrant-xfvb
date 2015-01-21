@@ -1,0 +1,5 @@
+jenkins:
+  master_url:   'JENKINS MASTER URL HERE'
+  slave_jnlp:   'SLAVE NODE JNLP URL HERE'
+  slave_secret: 'SLAVE NODE SECRET HERE'
+  slave_home:   '/home/jenkins'
