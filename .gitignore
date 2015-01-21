@@ -1,9 +1,7 @@
-# Created by .ignore support plugin (hsz.mobi)
+config.yml
 
 ### Vagrant template
 .vagrant/
-
-
 
 ### JetBrains template
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm
@@ -52,5 +50,4 @@ atlassian-ide-plugin.xml
 com_crashlytics_export_strings.xml
 crashlytics.properties
 crashlytics-build.properties
-
 
