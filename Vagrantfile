@@ -13,7 +13,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # forward VNC viewer ports
-  config.vm.network "forwarded_port", guest: 5900, host: 5900
+  config.vm.network :forwarded_port, :guest => 5900, :host => 5900
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -44,10 +44,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # information on available options.
 
   # update package index
-  config.vm.provision "shell", inline: "apt-get update -y"
+  config.vm.provision "shell", :inline => "apt-get update -y"
 
   # install puppet modules
-  config.vm.provision "shell", path: "install-puppet-modules.sh"
+  config.vm.provision "shell", :path => "install-puppet-modules.sh"
 
   # provision using puppet
   config.vm.provision "puppet" do |puppet|
