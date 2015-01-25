@@ -16,7 +16,7 @@ class jenkins_slave::headless (
     mode   => '0755',
     owner  => 'root',
     group  => 'root',
-    source => "puppet:///modules/jenkins_slave/init-jenkins-slave.sh",
+    source => 'puppet:///modules/jenkins_slave/init-jenkins-slave.sh',
     notify => Service['jenkins-slave'],
   }
 
@@ -25,7 +25,7 @@ class jenkins_slave::headless (
     mode    => '0600',
     owner   => 'root',
     group   => 'root',
-    content => template("jenkins_slave/jenkins-slave-defaults.erb"),
+    content => template('jenkins_slave/jenkins-slave-defaults.erb'),
     notify  => Service['jenkins-slave'],
   }
 

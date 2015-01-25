@@ -10,7 +10,7 @@ class jenkins_slave::headed (
   class { 'jenkins_slave::user':
     slave_home => $slave_home,
     slave_user => $slave_user,
-    groups => ['nopasswdlogin']
+    groups     => ['nopasswdlogin']
   }
 
   package { 'lightdm':
@@ -21,10 +21,21 @@ class jenkins_slave::headed (
     require => Package['lightdm']
   }
 
+  file { '/usr/share/xsessions':
+    ensure => directory
+  }
+
   file { '/usr/share/xsessions/jenkins-slave.desktop':
     ensure  => file,
-    content => template("jenkins_slave/jenkins-slave-session.desktop.erb"),
-    notify  => Service['lightdm']
+    source => 'puppet:///modules/jenkins_slave/jenkins-slave-session.desktop',
+    notify  => Service['lightdm'],
+    require => File['/usr/share/xsessions']
+  }
+
+  file { '/usr/bin/start-jenkins-slave.sh':
+    ensure  => file,
+    mode => 'a=rx,u+w',
+    content  => template('jenkins_slave/start-jenkins-slave.sh.erb')
   }
 
   ini_setting { 'guest':
