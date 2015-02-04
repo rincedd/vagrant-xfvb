@@ -1,6 +1,6 @@
 #!/bin/sh
 
-MODULES="willdurand-nodejs puppetlabs-java puppetlabs-inifile p0deje-display jamesnetherton-google_chrome"
+MODULES="willdurand-nodejs puppetlabs-java puppetlabs-inifile p0deje-display jamesnetherton-google_chrome puppetlabs-ruby"
 
 install_module() {
     MODULE="$1"

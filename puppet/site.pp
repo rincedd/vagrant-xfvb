@@ -23,13 +23,6 @@ class { 'java':
   distribution => 'jre'
 }
 
-#class {'display':
-#  display => 99,
-#  width => 1280,
-#  height => 720,
-#  color => 16,
-#}
-
 class { 'google_chrome':
   version => 'stable'
 }
@@ -42,3 +35,11 @@ class { 'jenkins_slave':
   headless => false
 }
 
+class { 'ruby':; }
+class { 'ruby::dev':; }
+
+exec { 'install-composer':
+  command => 'gem install compass compass-rgbapng',
+  path => '/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin',
+  require => Class['ruby', 'ruby::dev']
+}
