@@ -38,8 +38,14 @@ class { 'jenkins_slave':
 class { 'ruby':; }
 class { 'ruby::dev':; }
 
-exec { 'install-composer':
+exec { 'install-compass':
   command => 'gem install compass compass-rgbapng',
+  path => '/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin',
+  require => Class['ruby', 'ruby::dev']
+}
+
+exec { 'install-scss-lint':
+  command => 'gem install scss-lint scss_lint_reporter_checkstyle',
   path => '/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin',
   require => Class['ruby', 'ruby::dev']
 }
