@@ -14,6 +14,8 @@ install_module() {
 
 mkdir -p /etc/puppet/modules
 
+puppet module install puppetlabs-apt --version 1.8.0
+
 for MODULE in ${MODULES} ; do
     install_module ${MODULE}
 done
