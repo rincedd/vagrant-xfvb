@@ -49,3 +49,18 @@ exec { 'install-scss-lint':
   path => '/usr/bin:/usr/sbin:/sbin:/bin:/usr/local/bin',
   require => Class['ruby', 'ruby::dev']
 }
+
+class {
+  'php':;
+  'php::cli':;
+}
+
+php::extension { 'php-intl':
+  ensure => installed,
+  package => 'php5-intl',
+}
+
+php::extension { 'php-json':
+  ensure => installed,
+  package => 'php5-json'
+}
